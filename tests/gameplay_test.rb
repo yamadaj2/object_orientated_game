@@ -1,7 +1,10 @@
 require 'test/unit'
 require_relative '../lib/object_orientated_game/gameplay'
+require_relative '../lib/object_orientated_game/characters/ninja'
+require_relative '../lib/object_orientated_game/characters/samurai'
+require_relative '../lib/object_orientated_game/characters/demon'
 
-class Gameplay < Test::Unit::TestCase
+class GameplayTest < Test::Unit::TestCase
   def setup
     @gameplay = Gameplay.new
     @ninja = Ninja.new('Mr. Ninja', 100, 100, self.class)
