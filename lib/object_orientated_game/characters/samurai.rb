@@ -1,3 +1,5 @@
+require_relative 'character'
+
 class Samurai < Character
   attr_reader :type
 

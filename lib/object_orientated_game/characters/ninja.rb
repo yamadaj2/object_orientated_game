@@ -1,3 +1,5 @@
+require_relative 'character'
+
 class Ninja < Character
   attr_reader :type
 

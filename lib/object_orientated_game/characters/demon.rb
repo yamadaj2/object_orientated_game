@@ -1,3 +1,5 @@
+require_relative 'character'
+
 class Demon < Character
   attr_reader :type
 
