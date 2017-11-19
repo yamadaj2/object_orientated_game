@@ -1,6 +1,8 @@
 require 'test/unit'
 require_relative '../lib/object_orientated_game/characters/character'
 require_relative '../lib/object_orientated_game/characters/ninja'
+require_relative '../lib/object_orientated_game/characters/samurai'
+
 
 class CharacterTest < Test::Unit::TestCase
   def setup
