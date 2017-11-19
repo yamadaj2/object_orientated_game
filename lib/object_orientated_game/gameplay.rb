@@ -1,10 +1,27 @@
 require_relative '../object_orientated_game/characters/ninja'
 require_relative '../object_orientated_game/characters/samurai'
 require_relative '../object_orientated_game/characters/demon'
+require_relative '../../lib/object_orientated_game/modules/enemy_list'
 require_relative '../object_orientated_game/modules/player_character_list'
 
 class Gameplay
+  include EnemyList
   include PlayerCharacterList
+
+  def random_enemy_selection
+    r = Random.new
+    random_selection = r.rand(19)
+    case
+      when random_selection.zero?
+        enemy_character = EnemyList::ENEMY_LIST[:boss_demon][:object]
+      when random_selection >= 1 && random_selection <= 9
+        enemy_character = EnemyList::ENEMY_LIST[:enemy_samurai][:object]
+      when random_selection > 9 && random_selection <= 20
+        enemy_character = EnemyList::ENEMY_LIST[:enemy_ninja][:object]
+    end
+
+    enemy_character
+  end
 
   # todo test(stdin)
   def player_setup
