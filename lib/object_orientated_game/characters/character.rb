@@ -22,4 +22,8 @@ class Character
 
     stats_display
   end
+
+  def show_player_selection
+    "You chose #{self.name} the #{self.type}"
+  end
 end
