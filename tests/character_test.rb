@@ -1,23 +1,23 @@
 require 'test/unit'
+require_relative '../lib/object_orientated_game/characters/character'
+require_relative '../lib/object_orientated_game/characters/ninja'
 
 class CharacterTest < Test::Unit::TestCase
-
-  # Called before every test method runs. Can be used
-  # to set up fixture information.
   def setup
-    # Do nothing
+    @ninja = Ninja.new('Mr. Ninja', 100, 100, self.class)
   end
 
-  # Called after every test method runs. Can be used to tear
-  # down fixture information.
+  test 'that show_full_stats method works with correct stdout formatting for ninja' do
+    divider = '-' * 40
+    expected = <<~END
+      #{divider}
+        Name: #{@ninja.name}
+        Type: #{@ninja.type}
+        Health Points: #{@ninja.health_points}
+        Attack Points: #{@ninja.attack_points}
+      #{divider}
+    END
 
-  def teardown
-    # Do nothing
-  end
-
-  # Fake test
-  def test_fail
-
-    fail('Not implemented')
+    assert_equal expected, @ninja.show_full_stats
   end
 end
