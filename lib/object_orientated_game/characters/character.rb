@@ -4,4 +4,18 @@ class Character
     @health_points = health_points
     @attack_points = attack_points
   end
+
+  def show_full_stats
+    divider = '-' * 40
+    stats_display = <<~END
+    #{divider}
+      Name: #{@name}
+      Type: #{@type}
+      Health Points: #{@health_points}
+      Attack Points: #{@attack_points}
+    #{divider}
+    END
+
+    stats_display
+  end
 end
