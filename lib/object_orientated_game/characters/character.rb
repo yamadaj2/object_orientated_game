@@ -1,4 +1,8 @@
 class Character
+
+  attr_accessor :name, :health_points
+  attr_reader :attack_points
+
   def initialize(name, health_points, attack_points)
     @name = name
     @health_points = health_points
