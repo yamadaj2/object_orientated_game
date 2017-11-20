@@ -35,5 +35,6 @@ while player_character.is_alive? && enemy_character.is_alive?
     player_attack_choice_number = player_character.select_attack
     puts player_character.show_attack_description(player_attack_choice_number)
     enemy_damage_received = player_character.calculate_damage(player_attack_choice_number)
+    enemy_character.deduct_health(enemy_damage_received)
   end
 end

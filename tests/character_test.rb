@@ -154,6 +154,20 @@ class CharacterTest < Test::Unit::TestCase
     assert_equal 450, @demon.calculate_damage(2)
   end
 
+  test 'that deduct_health method functions as expected' do
+    assert_equal 100, @ninja.health_points
+    @ninja.deduct_health(10)
+    assert_equal 90, @ninja.health_points
+
+    assert_equal 200, @samurai.health_points
+    @samurai.deduct_health(10)
+    assert_equal 190, @samurai.health_points
+
+    assert_equal 300, @demon.health_points
+    @demon.deduct_health(10)
+    assert_equal 290, @demon.health_points
+  end
+
   private
 
   def assert_each_element_occurs_at_least_once(array_name)

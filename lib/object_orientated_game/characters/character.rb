@@ -89,4 +89,8 @@ class Character
     damage = self.get_attack_damage(attack_number_choice) * self.attack_points
     damage
   end
+
+  def deduct_health(damage_amount)
+    self.health_points -= damage_amount
+  end
 end
