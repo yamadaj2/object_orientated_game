@@ -34,5 +34,6 @@ while player_character.is_alive? && enemy_character.is_alive?
   if gameplay.attack_accurate?
     player_attack_choice_number = player_character.select_attack
     puts player_character.show_attack_description(player_attack_choice_number)
+    enemy_damage_received = player_character.calculate_damage(player_attack_choice_number)
   end
 end

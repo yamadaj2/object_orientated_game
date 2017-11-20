@@ -84,4 +84,9 @@ class Character
   def is_alive?
     self.health_points > 0 ? true : false
   end
+
+  def calculate_damage(attack_number_choice)
+    damage = self.get_attack_damage(attack_number_choice) * self.attack_points
+    damage
+  end
 end
