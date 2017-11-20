@@ -63,6 +63,12 @@ class GameplayTest < Test::Unit::TestCase
     assert_equal "Your health: 200 | Mr. Demon's health: 300", @gameplay.show_health_statuses(@samurai, @demon)
   end
 
+  test 'that show_characters_turn functions as expected' do
+    assert_equal '*' * 30 + "  #{@ninja.name}'s Move  " + '*' * 30, @gameplay.show_characters_turn(@ninja)
+    assert_equal '*' * 30 + "  #{@samurai.name}'s Move  " + '*' * 30, @gameplay.show_characters_turn(@samurai)
+    assert_equal '*' * 30 + "  #{@demon.name}'s Move  " + '*' * 30, @gameplay.show_characters_turn(@demon)
+  end
+
   test 'that letters_only method only allows letters to be accepted' do
     input = 'hello'
     assert @gameplay.letters_only?(input)
