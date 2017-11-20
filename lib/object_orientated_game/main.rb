@@ -66,3 +66,6 @@ while player_character.is_alive? && enemy_character.is_alive?
 end
 
 gameplay.decide_winner(player_character, enemy_character)
+puts gameplay.divider
+puts gameplay.show_health_statuses(player_character, enemy_character)
+puts gameplay.divider
