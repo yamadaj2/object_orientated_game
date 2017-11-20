@@ -22,4 +22,8 @@ while player_character.is_alive? && enemy_character.is_alive?
   sleep 1
   puts enemy_character.show_full_stats
   sleep 1
+
+  puts gameplay.divider
+  puts gameplay.show_health_statuses(player_character, enemy_character)
+  puts gameplay.divider
 end
