@@ -1,9 +1,11 @@
 require_relative '../modules/trash_talk'
 require_relative '../modules/attack_list'
+require_relative '../modules/attack_remarks'
 
 class Character
   include AttackList
   include TrashTalk
+  include AttackRemarks
 
   attr_accessor :name, :health_points
   attr_reader :attack_points
@@ -92,6 +94,11 @@ class Character
 
   def deduct_health(damage_amount)
     self.health_points -= damage_amount
+  end
+
+  def damaged_received_remark
+    remark = AttackRemarks::AccurateAttackRemarks.new
+    remark.random_attack_remark(self)
   end
 
   #todo test (stdout)

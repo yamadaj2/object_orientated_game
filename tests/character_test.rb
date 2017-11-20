@@ -168,6 +168,22 @@ class CharacterTest < Test::Unit::TestCase
     assert_equal 290, @demon.health_points
   end
 
+  test 'that damage_received_remark functions as expected' do
+    attack_remarks_array =
+        [
+            "Mr. Samurai is going to feel that in the morning",
+            "Right in Mr. Samurai's weak spot!",
+            "Mr. Samurai's blood is everywhere.",
+            "Mr. Samurai almost dodged that one",
+            "Is this the end for Mr. Samurai?",
+            'That was a powerful strike',
+            "I'm not sure if Mr. Samurai can get up after that attack"
+        ]
+
+    assert_each_element_has_equal_chance_of_occurring(attack_remarks_array){@samurai.damaged_received_remark}
+    assert_each_element_occurs_at_least_once(attack_remarks_array){@samurai.damaged_received_remark}
+  end
+
   #todo test show damage_scene (stdout)
 
   test 'that show_target_is_hit functions correctly' do

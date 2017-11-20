@@ -37,5 +37,6 @@ while player_character.is_alive? && enemy_character.is_alive?
     enemy_damage_received = player_character.calculate_damage(player_attack_choice_number)
     enemy_character.deduct_health(enemy_damage_received)
     enemy_character.show_damage_scene(enemy_damage_received)
+    puts enemy_character.damaged_received_remark
   end
 end
