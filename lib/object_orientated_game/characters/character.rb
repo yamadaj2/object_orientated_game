@@ -1,4 +1,7 @@
+require_relative '../modules/trash_talk'
+
 class Character
+  include TrashTalk
 
   attr_accessor :name, :health_points
   attr_reader :attack_points
