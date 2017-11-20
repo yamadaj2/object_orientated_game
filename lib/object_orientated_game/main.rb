@@ -51,6 +51,7 @@ while player_character.is_alive? && enemy_character.is_alive?
     enemy_attack_choice_number = enemy_character.generate_random_attack_number
     player_damage_received = enemy_character.calculate_damage(enemy_attack_choice_number)
     player_character.deduct_health(player_damage_received)
+    player_character.show_damage_scene(player_damage_received)
     sleep 1
   end
 end
