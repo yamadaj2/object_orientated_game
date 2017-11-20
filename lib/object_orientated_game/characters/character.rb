@@ -124,7 +124,7 @@ class Character
 
   def missed_attack_remark
     remark = AttackRemarks::MissRemarks.new
-    #todo this self is ugly
+    #todo this self is ugly. Re-factor
     remark.random_miss_remark(self)
   end
 end
