@@ -48,6 +48,16 @@ class GameplayTest < Test::Unit::TestCase
     assert_equal 0, other_count
   end
 
+  test 'that demon boss intro scene functions correctly' do
+    expected_demon_boss_scene = "What the..? You've encountered the infamous Demon Boss Tuguro"
+    assert_equal expected_demon_boss_scene, @demon.show_demon_boss_intro_scene
+  end
+
+  test 'that demon boss intro line functions correctly' do
+    expected_demon_intro_line = "Tuguro says: \"I am more powerful than the others you have faced. You cannot win. Prepare to die\""
+    assert_equal expected_demon_intro_line, @demon.show_demon_intro_line
+  end
+
   test 'that letters_only method only allows letters to be accepted' do
     input = 'hello'
     assert @gameplay.letters_only?(input)

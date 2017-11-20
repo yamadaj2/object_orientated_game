@@ -1,4 +1,7 @@
+require_relative '../modules/trash_talk'
+
 class Character
+  include TrashTalk
 
   attr_accessor :name, :health_points
   attr_reader :attack_points
@@ -25,5 +28,19 @@ class Character
 
   def show_player_selection
     "You chose #{self.name} the #{self.type}"
+  end
+
+  def show_challenge_line
+    "#{self.name} the #{self.type} has appeared and is challenging you to a fight to the death!"
+  end
+
+  def show_character_intro
+    "#{self.name} looks at you dead in the eye and says:\n#{character_trash_talk}"
+  end
+
+  def character_trash_talk
+    r = Random.new
+    intro_line_list = TrashTalk::Lines
+    intro_line_list[r.rand(intro_line_list.length)]
   end
 end
