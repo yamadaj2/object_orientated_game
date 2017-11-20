@@ -32,4 +32,20 @@ class Demon < Character
   def show_demon_intro_line
     EnemyList::ENEMY_LIST[:boss_demon][:intro_line]
   end
+
+  def show_demon_intro_line
+    EnemyList::ENEMY_LIST[:boss_demon][:intro_line]
+  end
+
+  def show_demon_victory_scene
+    EnemyList::ENEMY_LIST[:boss_demon][:victory_line]
+  end
+
+  def show_demon_defeat_scene
+    EnemyList::ENEMY_LIST[:boss_demon][:defeat_line]
+  end
+
+  def show_demon_congratulations_line
+    EnemyList::ENEMY_LIST[:boss_demon][:congratulations_line]
+  end
 end

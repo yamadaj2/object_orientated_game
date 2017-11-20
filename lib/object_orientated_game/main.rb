@@ -64,3 +64,5 @@ while player_character.is_alive? && enemy_character.is_alive?
   sleep 4
   system 'clear'
 end
+
+gameplay.decide_winner(player_character, enemy_character)

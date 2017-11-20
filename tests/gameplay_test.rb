@@ -98,4 +98,20 @@ class GameplayTest < Test::Unit::TestCase
     input = '&specialCharacters%$@'
     assert_equal false, @gameplay.letters_only?(input)
   end
+
+  test 'that decide_winner method functions as expected' do
+    # TODO: assert that demon functionality occurs only when a demon is involved
+    player_character = @ninja
+    enemy_character = @samurai
+
+    player_character.health_points = 0
+    enemy_character.health_points = -1
+    actual_outcome = @gameplay.decide_winner(player_character, enemy_character)
+    assert_equal @gameplay.tie_battle_outcome_scene(@samurai, @ninja), actual_outcome
+
+    player_character.health_points = 1
+    enemy_character.health_points = 0
+    actual_outcome = @gameplay.decide_winner(player_character, enemy_character)
+    assert_equal player_character.show_victory_scene(enemy_character), actual_outcome
+  end
 end

@@ -76,6 +76,36 @@ class Gameplay
     accurate > 0 ? true : false
   end
 
+  #todo test(stdout)
+  def decide_winner(player_character, enemy_character)
+    if player_character.health_points <= 0 && enemy_character.health_points <= 0
+      tie_battle_outcome_scene(player_character, enemy_character)
+    elsif player_character.health_points > enemy_character.health_points
+      show_battle_over
+      player_character.show_victory_scene(enemy_character)
+      puts enemy_character.show_demon_congratulations_line if enemy_character.class == Demon
+    else
+      show_battle_over
+      enemy_character.show_victory_scene(player_character)
+      puts enemy_character.show_demon_victory_scene if enemy_character.class == Demon
+    end
+  end
+
+  # todo test (stdout)
+  def tie_battle_outcome_scene(player_character, enemy_character)
+    star_divider = '*' * 20
+    show_battle_over
+    puts star_divider + " #{player_character.name} and #{enemy_character.name} are both dead! " + star_divider
+    puts star_divider + " The battle has ended in a tie! " + star_divider
+  end
+
+  # todo test(stdout)
+  def show_battle_over
+    star_divider = '*' * 20
+    puts star_divider + ' The Battle is Over! ' + star_divider
+    sleep 1
+  end
+
   #todo test (stdout)
   def show_round_number(round_number)
     puts divider
