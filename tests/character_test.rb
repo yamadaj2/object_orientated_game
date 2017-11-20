@@ -49,7 +49,8 @@ class CharacterTest < Test::Unit::TestCase
             "Mr. Ninja looks at you dead in the eye and says:\n\"It's me, Mr. Crowbar. And this is my friend who is also a crowbar.\""
         ]
 
-    assert possible_outcomes.include?(@ninja.show_character_intro)
+    assert_each_element_occurs_at_least_once(possible_outcomes){@ninja.show_character_intro}
+    assert_each_element_has_equal_chance_of_occurring(possible_outcomes){@ninja.show_character_intro}
   end
 
   test 'that character trash talk functions as expected' do
