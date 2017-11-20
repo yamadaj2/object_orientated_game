@@ -204,6 +204,22 @@ class CharacterTest < Test::Unit::TestCase
     assert_equal "Mr. Demon attacks and misses Mr. Samurai!!", @demon.show_attack_miss_scene(@samurai)
   end
 
+  test 'that missed_attack_remark method works as expected' do
+    post_miss_remarks_array =
+        [
+            'How embarrassing!',
+            'Should have gone to specsavers',
+            "Woeful performance on Mr. Ninja's part, just woeful",
+            'So close, yet so far!',
+            "Can't believe Mr. Ninja missed that one!",
+            "Critical Error for Mr. Ninja!",
+            "Is this the beginning of the end for Mr. Ninja?"
+        ]
+
+    assert_each_element_occurs_at_least_once(post_miss_remarks_array){@ninja.missed_attack_remark}
+    assert_each_element_has_equal_chance_of_occurring(post_miss_remarks_array){@ninja.missed_attack_remark}
+  end
+
   private
 
   def assert_each_element_occurs_at_least_once(array_name)

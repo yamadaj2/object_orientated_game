@@ -41,5 +41,8 @@ while player_character.is_alive? && enemy_character.is_alive?
     sleep 1
   else
     puts player_character.show_attack_miss_scene(enemy_character)
+    sleep 1
+    puts player_character.missed_attack_remark
+    sleep 1
   end
 end

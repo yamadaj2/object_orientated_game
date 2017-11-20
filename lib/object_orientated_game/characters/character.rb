@@ -121,4 +121,10 @@ class Character
   def show_attack_miss_scene(target)
     "#{self.name} attacks and misses #{target.name}!!"
   end
+
+  def missed_attack_remark
+    remark = AttackRemarks::MissRemarks.new
+    #todo this self is ugly
+    remark.random_miss_remark(self)
+  end
 end
