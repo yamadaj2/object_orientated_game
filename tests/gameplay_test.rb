@@ -58,6 +58,18 @@ class GameplayTest < Test::Unit::TestCase
     assert_equal expected_demon_intro_line, @demon.show_demon_intro_line
   end
 
+  test 'that demon_victory line functions as expected' do
+    assert_equal "Hahahahaha. I am the most powerful fighter ever and you are just another brick in the wall", @demon.show_demon_victory_scene
+  end
+
+  test 'that demon boss defeat scene functions correctly' do
+    assert_equal "No! How did you defeat me? You must be the One. I will be back!", @demon.show_demon_defeat_scene
+  end
+
+  test 'that demon congratulations functions correctly' do
+    assert_equal "Congratulations! You are the first person to defeat the Demon Boss. You are the Master!", @demon.show_demon_congratulations_line
+  end
+
   test 'that show_health_statuses method works correctly.' do
     assert_equal "Your health: 100 | Mr. Samurai's health: 200", @gameplay.show_health_statuses(@ninja, @samurai)
     assert_equal "Your health: 200 | Mr. Demon's health: 300", @gameplay.show_health_statuses(@samurai, @demon)
@@ -134,5 +146,21 @@ class GameplayTest < Test::Unit::TestCase
 
     input = '&specialCharacters%$@'
     assert_equal false, @gameplay.letters_only?(input)
+  end
+
+  test 'that decide_winner method functions as expected' do
+    # TODO: assert that demon functionality occurs only when a demon is involved
+    player_character = @ninja
+    enemy_character = @samurai
+
+    player_character.health_points = 0
+    enemy_character.health_points = -1
+    actual_outcome = @gameplay.decide_winner(player_character, enemy_character)
+    assert_equal @gameplay.tie_battle_outcome_scene(@samurai, @ninja), actual_outcome
+
+    player_character.health_points = 1
+    enemy_character.health_points = 0
+    actual_outcome = @gameplay.decide_winner(player_character, enemy_character)
+    assert_equal player_character.show_victory_scene(enemy_character), actual_outcome
   end
 end
