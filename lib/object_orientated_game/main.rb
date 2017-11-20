@@ -8,6 +8,9 @@ player_character = gameplay.player_setup
 enemy_character = gameplay.random_enemy_selection
 puts player_character.show_player_selection
 
+sleep 1
+system 'clear'
+
 # Introduction Scenes
 enemy_character.show_demon_intro_scenes if enemy_character.class == Demon
 puts enemy_character.show_challenge_line
@@ -60,7 +63,12 @@ while player_character.is_alive? && enemy_character.is_alive?
     puts enemy_character.missed_attack_remark
   end
 
-  rounde_number += 1
+  round_number += 1
   sleep 4
   system 'clear'
 end
+
+gameplay.decide_winner(player_character, enemy_character)
+puts gameplay.divider
+puts gameplay.show_health_statuses(player_character, enemy_character)
+puts gameplay.divider

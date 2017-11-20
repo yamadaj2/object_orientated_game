@@ -132,4 +132,12 @@ class Character
     #todo this self is ugly. Re-factor
     remark.random_miss_remark(self)
   end
+
+  #todo test (stdout)
+  def show_victory_scene(loser)
+    star_divider = '*' * 20
+    puts star_divider + " #{self.name} has killed #{loser.name} " + star_divider
+    sleep 1
+    puts star_divider + " #{self.name} is the Victor!! " + star_divider
+  end
 end
