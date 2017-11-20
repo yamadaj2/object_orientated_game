@@ -59,4 +59,8 @@ while player_character.is_alive? && enemy_character.is_alive?
     sleep 1
     puts enemy_character.missed_attack_remark
   end
+
+  rounde_number += 1
+  sleep 4
+  system 'clear'
 end
