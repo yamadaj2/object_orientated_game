@@ -117,4 +117,8 @@ class Character
   def show_damage_amount(damage_amount)
     "Damage inflicted: #{damage_amount}"
   end
+
+  def show_attack_miss_scene(target)
+    "#{self.name} attacks and misses #{target.name}!!"
+  end
 end

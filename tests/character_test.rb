@@ -198,6 +198,12 @@ class CharacterTest < Test::Unit::TestCase
     assert_equal 'Damage inflicted: 100', @demon.show_damage_amount(100)
   end
 
+  test 'that show_attack_miss_scene functions as expected' do
+    assert_equal "Mr. Ninja attacks and misses Mr. Demon!!", @ninja.show_attack_miss_scene(@demon)
+    assert_equal "Mr. Samurai attacks and misses Mr. Ninja!!", @samurai.show_attack_miss_scene(@ninja)
+    assert_equal "Mr. Demon attacks and misses Mr. Samurai!!", @demon.show_attack_miss_scene(@samurai)
+  end
+
   private
 
   def assert_each_element_occurs_at_least_once(array_name)

@@ -38,5 +38,8 @@ while player_character.is_alive? && enemy_character.is_alive?
     enemy_character.deduct_health(enemy_damage_received)
     enemy_character.show_damage_scene(enemy_damage_received)
     puts enemy_character.damaged_received_remark
+    sleep 1
+  else
+    puts player_character.show_attack_miss_scene(enemy_character)
   end
 end
