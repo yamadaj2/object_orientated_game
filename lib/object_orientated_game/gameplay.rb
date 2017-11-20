@@ -10,13 +10,18 @@ class Gameplay
 
   def random_enemy_selection
     r = Random.new
-    random_selection = r.rand(19)
+    sample_size = 100
+    demon_odds = sample_size * 0.05
+    samurai_odds = sample_size * 0.52
+    ninja_odds = sample_size * 0.52
+
+    random_selection = r.rand(sample_size)
     case
-      when random_selection.zero?
+      when random_selection <= demon_odds
         enemy_character = EnemyList::ENEMY_LIST[:boss_demon][:object]
-      when random_selection >= 1 && random_selection <= 9
+      when random_selection > demon_odds && random_selection <= samurai_odds
         enemy_character = EnemyList::ENEMY_LIST[:enemy_samurai][:object]
-      when random_selection > 9 && random_selection <= 20
+      when random_selection > ninja_odds && random_selection <= sample_size
         enemy_character = EnemyList::ENEMY_LIST[:enemy_ninja][:object]
     end
 

@@ -17,7 +17,7 @@ class GameplayTest < Test::Unit::TestCase
     samurai_count = 0
     ninja_count = 0
     other_count = 0
-    loop_length = 100000
+    loop_length = 10000
 
     loop_length.times{
       random_enemy = @gameplay.random_enemy_selection
@@ -33,17 +33,17 @@ class GameplayTest < Test::Unit::TestCase
       end
     }
 
-    # 5 - 5.5% of the time
-    assert_operator demon_count, :>, loop_length * 0.05
-    assert_operator demon_count, :<, loop_length * 0.055
+    # approx 5% of the time
+    assert_operator demon_count, :>, loop_length * 0.04
+    assert_operator demon_count, :<, loop_length * 0.07
 
-    # 46.8% - 47.7% of the time
-    assert_operator samurai_count, :>, loop_length * 0.468
-    assert_operator samurai_count, :<, loop_length * 0.477
+    # approx 47% of the time
+    assert_operator samurai_count, :>, loop_length * 0.45
+    assert_operator samurai_count, :<, loop_length * 0.49
 
-    # 46.8% - 47.7% of the time
-    assert_operator ninja_count, :>, loop_length * 0.468
-    assert_operator ninja_count, :<, loop_length * 0.477
+    # approx 47% of the time
+    assert_operator ninja_count, :>, loop_length * 0.45
+    assert_operator ninja_count, :<, loop_length * 0.49
 
     assert_equal 0, other_count
   end
