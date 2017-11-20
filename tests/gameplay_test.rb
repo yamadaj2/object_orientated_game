@@ -58,6 +58,11 @@ class GameplayTest < Test::Unit::TestCase
     assert_equal expected_demon_intro_line, @demon.show_demon_intro_line
   end
 
+  test 'that show_health_statuses method works correctly.' do
+    assert_equal "Your health: 100 | Mr. Samurai's health: 200", @gameplay.show_health_statuses(@ninja, @samurai)
+    assert_equal "Your health: 200 | Mr. Demon's health: 300", @gameplay.show_health_statuses(@samurai, @demon)
+  end
+
   test 'that letters_only method only allows letters to be accepted' do
     input = 'hello'
     assert @gameplay.letters_only?(input)
