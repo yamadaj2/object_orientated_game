@@ -18,5 +18,8 @@ sleep 2
 # Battle starts here
 round_number = 1
 while player_character.is_alive? && enemy_character.is_alive?
-
+  puts player_character.show_full_stats
+  sleep 1
+  puts enemy_character.show_full_stats
+  sleep 1
 end
