@@ -30,4 +30,14 @@ class Character
   def show_challenge_line
     "#{self.name} the #{self.type} has appeared and is challenging you to a fight to the death!"
   end
+
+  def show_character_intro
+    "#{self.name} looks at you dead in the eye and says:\n#{character_trash_talk}"
+  end
+
+  def character_trash_talk
+    r = Random.new
+    intro_line_list = TrashTalk::Lines
+    intro_line_list[r.rand(intro_line_list.length)]
+  end
 end
