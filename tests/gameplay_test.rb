@@ -69,6 +69,19 @@ class GameplayTest < Test::Unit::TestCase
     assert_equal '*' * 30 + "  #{@demon.name}'s Move  " + '*' * 30, @gameplay.show_characters_turn(@demon)
   end
 
+  test 'that attack is accurate 88% to 90% of the time' do
+    accurate_count = 0
+    loop_length = 10000
+
+    loop_length.times{
+      if @gameplay.attack_accurate?
+        accurate_count += 1
+      end
+    }
+    assert_operator accurate_count, :>, loop_length * 0.88
+    assert_operator accurate_count, :<, loop_length * 0.9
+  end
+
   test 'that letters_only method only allows letters to be accepted' do
     input = 'hello'
     assert @gameplay.letters_only?(input)
