@@ -26,4 +26,8 @@ class Character
   def show_player_selection
     "You chose #{self.name} the #{self.type}"
   end
+
+  def show_challenge_line
+    "#{self.name} the #{self.type} has appeared and is challenging you to a fight to the death!"
+  end
 end
