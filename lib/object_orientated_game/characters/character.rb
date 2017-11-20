@@ -1,6 +1,8 @@
 require_relative '../modules/trash_talk'
+require_relative '../modules/attack_list'
 
 class Character
+  include AttackList
   include TrashTalk
 
   attr_accessor :name, :health_points
@@ -42,6 +44,22 @@ class Character
     r = Random.new
     intro_line_list = TrashTalk::Lines
     intro_line_list[r.rand(intro_line_list.length)]
+  end
+
+  #todo test (stdout)
+  def select_attack
+    attack_choice_number = 0
+    while attack_choice_number < 1 || attack_choice_number > self.attack_list_length
+      puts "Choose your attack by entering a number between 1 and #{self.attack_list_length}"
+      self.show_attack_list
+      attack_choice_number = gets.chomp.to_i
+      if attack_choice_number > 0 && attack_choice_number <= self.attack_list_length
+        system 'clear'
+        return attack_choice_number
+      else
+        puts "You've entered an invalid option. Please select from the list"
+      end
+    end
   end
 
   def is_alive?

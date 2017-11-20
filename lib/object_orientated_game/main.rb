@@ -32,6 +32,6 @@ while player_character.is_alive? && enemy_character.is_alive?
   puts gameplay.show_characters_turn(player_character)
 
   if gameplay.attack_accurate?
-
+    player_attack_choice_number = player_character.select_attack
   end
 end

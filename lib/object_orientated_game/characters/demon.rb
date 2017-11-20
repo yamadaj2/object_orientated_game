@@ -8,6 +8,10 @@ class Demon < Character
     @type = self.class
   end
 
+  def attack_list_length
+    AttackList::DEMON_ATTACK_LIST.length
+  end
+
   def show_demon_intro_scenes
     sleep 3
     puts self.show_demon_boss_intro_scene
