@@ -64,6 +64,11 @@ class Character
     end
   end
 
+  def generate_random_attack_number
+    r = Random.new
+    r.rand(self.attack_list_length)
+  end
+
   def show_attack_description(attack_number_choice)
     attack_list = self.get_attack_list
     "#{self.name} #{attack_list[attack_list.keys[attack_number_choice - 1]][:description]}"

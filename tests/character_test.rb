@@ -69,6 +69,22 @@ class CharacterTest < Test::Unit::TestCase
     assert_each_element_has_equal_chance_of_occurring(trash_talk){@samurai.character_trash_talk}
   end
 
+  test 'that random attack numbers functions for enemy characters' do
+    1000.times {
+      outcome = @ninja.generate_random_attack_number
+      assert_operator outcome, :>=, 0
+      assert_operator outcome, :<=, 3
+
+      outcome = @samurai.generate_random_attack_number
+      assert_operator outcome, :>=, 0
+      assert_operator outcome, :<=, 3
+
+      outcome = @demon.generate_random_attack_number
+      assert_operator outcome, :>=, 0
+      assert_operator outcome, :<=, 1
+    }
+  end
+
   test 'that show_attack_description functions as expected' do
     assert_equal 'Mr. Ninja threw Ninja Stars.', @ninja.show_attack_description(1)
     assert_equal 'Mr. Ninja threw a Bolas, wrapping around its target and slams him to the ground!', @ninja.show_attack_description(2)

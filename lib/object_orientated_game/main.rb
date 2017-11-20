@@ -45,4 +45,9 @@ while player_character.is_alive? && enemy_character.is_alive?
     puts player_character.missed_attack_remark
     sleep 1
   end
+
+  puts gameplay.show_characters_turn(enemy_character)
+  if gameplay.attack_accurate?
+    enemy_attack_choice_number = enemy_character.generate_random_attack_number
+  end
 end
