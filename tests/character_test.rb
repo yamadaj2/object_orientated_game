@@ -139,6 +139,21 @@ class CharacterTest < Test::Unit::TestCase
     assert !@demon.is_alive?
   end
 
+  test "that calculate_damage method works as expected for each character's attacks" do
+    assert_equal 40, @ninja.calculate_damage(1)
+    assert_equal 20, @ninja.calculate_damage(2)
+    assert_equal 50, @ninja.calculate_damage(3)
+    assert_equal 80, @ninja.calculate_damage(4)
+
+    assert_equal 120, @samurai.calculate_damage(1)
+    assert_equal 160, @samurai.calculate_damage(2)
+    assert_equal 140, @samurai.calculate_damage(3)
+    assert_equal 180, @samurai.calculate_damage(4)
+
+    assert_equal 120, @demon.calculate_damage(1)
+    assert_equal 450, @demon.calculate_damage(2)
+  end
+
   private
 
   def assert_each_element_occurs_at_least_once(array_name)
