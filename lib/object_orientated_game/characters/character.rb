@@ -62,6 +62,25 @@ class Character
     end
   end
 
+  def show_attack_description(attack_number_choice)
+    attack_list = self.get_attack_list
+    "#{self.name} #{attack_list[attack_list.keys[attack_number_choice - 1]][:description]}"
+  end
+
+  def get_attack_list
+    character_type = self.class.to_s
+    case character_type
+      when Ninja.to_s
+        attack_list = AttackList::NINJA_ATTACK_LIST
+      when Samurai.to_s
+        attack_list = AttackList::SAMURAI_ATTACK_LIST
+      when Demon.to_s
+        attack_list = AttackList::DEMON_ATTACK_LIST
+    end
+
+    attack_list
+  end
+
   def is_alive?
     self.health_points > 0 ? true : false
   end
