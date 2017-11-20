@@ -69,6 +69,29 @@ class CharacterTest < Test::Unit::TestCase
     assert_each_element_has_equal_chance_of_occurring(trash_talk){@samurai.character_trash_talk}
   end
 
+  test 'that is_alive? method works as expected' do
+    @ninja.health_points = 1
+    @samurai.health_points = 1
+    @demon.health_points = 1
+    assert @ninja.is_alive?
+    assert @samurai.is_alive?
+    assert @demon.is_alive?
+
+    @ninja.health_points = 0
+    @samurai.health_points = 0
+    @demon.health_points = 0
+    assert !@ninja.is_alive?
+    assert !@samurai.is_alive?
+    assert !@demon.is_alive?
+
+    @ninja.health_points = -1
+    @samurai.health_points = -1
+    @demon.health_points = -1
+    assert !@ninja.is_alive?
+    assert !@samurai.is_alive?
+    assert !@demon.is_alive?
+  end
+
   private
 
   def assert_each_element_occurs_at_least_once(array_name)
