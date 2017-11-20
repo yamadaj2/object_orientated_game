@@ -76,7 +76,7 @@ class GameplayTest < Test::Unit::TestCase
     input = 'sentence with spaces'
     assert_equal false, @gameplay.letters_only?(input)
 
-    input = 'words, numbers123, &special characters'
+    input = 'words, numbers123, &special characters%$@'
     assert_equal false, @gameplay.letters_only?(input)
   end
 end
