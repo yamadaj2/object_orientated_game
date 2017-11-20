@@ -54,5 +54,7 @@ while player_character.is_alive? && enemy_character.is_alive?
     player_character.show_damage_scene(player_damage_received)
     puts player_character.damaged_received_remark
     sleep 1
+  else
+    puts enemy_character.show_attack_miss_scene(player_character)
   end
 end
