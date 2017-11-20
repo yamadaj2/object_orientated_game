@@ -93,4 +93,21 @@ class Character
   def deduct_health(damage_amount)
     self.health_points -= damage_amount
   end
+
+  #todo test (stdout)
+  def show_damage_scene(damage_amount)
+    sleep 1
+    puts show_target_is_hit(self)
+    sleep 1
+    puts show_damage_amount(damage_amount)
+    sleep 1
+  end
+
+  def show_target_is_hit(target)
+    "#{target.name} is hit!"
+  end
+
+  def show_damage_amount(damage_amount)
+    "Damage inflicted: #{damage_amount}"
+  end
 end

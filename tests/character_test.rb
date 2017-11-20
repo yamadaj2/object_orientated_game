@@ -168,6 +168,20 @@ class CharacterTest < Test::Unit::TestCase
     assert_equal 290, @demon.health_points
   end
 
+  #todo test show damage_scene (stdout)
+
+  test 'that show_target_is_hit functions correctly' do
+    assert_equal 'Mr. Ninja is hit!', @ninja.show_target_is_hit(@ninja)
+    assert_equal 'Mr. Samurai is hit!', @ninja.show_target_is_hit(@samurai)
+    assert_equal 'Mr. Demon is hit!', @ninja.show_target_is_hit(@demon)
+  end
+
+  test 'that show_damage_amount functions correctly' do
+    assert_equal 'Damage inflicted: 100', @ninja.show_damage_amount(100)
+    assert_equal 'Damage inflicted: 100', @samurai.show_damage_amount(100)
+    assert_equal 'Damage inflicted: 100', @demon.show_damage_amount(100)
+  end
+
   private
 
   def assert_each_element_occurs_at_least_once(array_name)
