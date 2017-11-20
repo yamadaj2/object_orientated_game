@@ -58,6 +58,18 @@ class GameplayTest < Test::Unit::TestCase
     assert_equal expected_demon_intro_line, @demon.show_demon_intro_line
   end
 
+  test 'that demon_victory line functions as expected' do
+    assert_equal "Hahahahaha. I am the most powerful fighter ever and you are just another brick in the wall", @demon.show_demon_victory_scene
+  end
+
+  test 'that demon boss defeat scene functions correctly' do
+    assert_equal "No! How did you defeat me? You must be the One. I will be back!", @demon.show_demon_defeat_scene
+  end
+
+  test 'that demon congratulations functions correctly' do
+    assert_equal "Congratulations! You are the first person to defeat the Demon Boss. You are the Master!", @demon.show_demon_congratulations_line
+  end
+
   test 'that show_health_statuses method works correctly.' do
     assert_equal "Your health: 100 | Mr. Samurai's health: 200", @gameplay.show_health_statuses(@ninja, @samurai)
     assert_equal "Your health: 200 | Mr. Demon's health: 300", @gameplay.show_health_statuses(@samurai, @demon)
