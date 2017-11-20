@@ -70,6 +70,12 @@ class Gameplay
     "Your health: #{player_character.health_points} | #{enemy_character.name}'s health: #{enemy_character.health_points}"
   end
 
+  def attack_accurate?
+    r = Random.new
+    accurate = r.rand(9)
+    accurate > 0 ? true : false
+  end
+
   #todo test (stdout)
   def show_round_number(round_number)
     puts divider
