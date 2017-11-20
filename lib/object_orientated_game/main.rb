@@ -49,5 +49,7 @@ while player_character.is_alive? && enemy_character.is_alive?
   puts gameplay.show_characters_turn(enemy_character)
   if gameplay.attack_accurate?
     enemy_attack_choice_number = enemy_character.generate_random_attack_number
+    player_damage_received = enemy_character.calculate_damage(enemy_attack_choice_number)
+    sleep 1
   end
 end
