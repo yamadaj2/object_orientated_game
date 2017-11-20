@@ -80,4 +80,8 @@ class Gameplay
   def divider
     divider = '-' * 40
   end
+
+  def show_characters_turn(character)
+    '*' * 30 + "  #{character.name}'s Move  " + '*' * 30
+  end
 end

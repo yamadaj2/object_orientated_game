@@ -28,4 +28,6 @@ while player_character.is_alive? && enemy_character.is_alive?
   puts gameplay.divider
 
   gameplay.show_round_number(round_number)
+  sleep 1
+  puts gameplay.show_characters_turn(player_character)
 end
