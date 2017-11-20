@@ -65,4 +65,8 @@ class Gameplay
   def letters_only?(player_input)
     !/^[A-z]+$/.match(player_input).nil?
   end
+
+  def divider
+    divider = '-' * 40
+  end
 end
