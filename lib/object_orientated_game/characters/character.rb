@@ -43,4 +43,8 @@ class Character
     intro_line_list = TrashTalk::Lines
     intro_line_list[r.rand(intro_line_list.length)]
   end
+
+  def is_alive?
+    self.health_points > 0 ? true : false
+  end
 end
