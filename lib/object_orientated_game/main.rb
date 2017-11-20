@@ -14,3 +14,9 @@ puts enemy_character.show_challenge_line
 sleep 2
 puts enemy_character.show_character_intro unless self.class == Demon
 sleep 2
+
+# Battle starts here
+round_number = 1
+while player_character.is_alive? && enemy_character.is_alive?
+
+end
