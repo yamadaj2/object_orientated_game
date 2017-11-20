@@ -66,6 +66,10 @@ class Gameplay
     !/^[A-z]+$/.match(player_input).nil?
   end
 
+  def show_health_statuses(player_character, enemy_character)
+    "Your health: #{player_character.health_points} | #{enemy_character.name}'s health: #{enemy_character.health_points}"
+  end
+
   def divider
     divider = '-' * 40
   end
