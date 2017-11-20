@@ -69,6 +69,43 @@ class GameplayTest < Test::Unit::TestCase
     assert_equal '*' * 30 + "  #{@demon.name}'s Move  " + '*' * 30, @gameplay.show_characters_turn(@demon)
   end
 
+  test 'that show attack description method functions correctly for all 3 characters.' do
+    attack_list = AttackList::NINJA_ATTACK_LIST
+    ninja_attack_description_list =
+        [
+            'Mr. Ninja threw Ninja Stars.',
+            'Mr. Ninja threw a Bolas, wrapping around its target and slams him to the ground!',
+            'Mr. Ninja took out his Dagger and delivered a swift strike to the enemy!',
+            'Mr. Ninja vanished into thin air and re-appeared behind the target, cutting him with a knife!'
+        ]
+    4.times do |index|
+      assert_equal ninja_attack_description_list[index], @ninja.show_attack_description(index + 1)
+    end
+
+    attack_list = AttackList::SAMURAI_ATTACK_LIST
+    samurai_attack_description_list =
+        [
+            'Mr. Samurai struck with a huge Sword Slash!',
+            'Mr. Samurai is running and attacked with Sword Charge!',
+            'Mr. Samurai began spinning and struck with Sword Spin, knocking the opponent to the ground!',
+            'Mr. Samurai threw a lightening strong Energy Punch, sending the enemy flying into the air with a huge burst of light!'
+        ]
+    4.times do |index|
+      assert_equal samurai_attack_description_list[index], @samurai.show_attack_description(index + 1)
+    end
+
+    attack_list = AttackList::DEMON_ATTACK_LIST
+    demon_attack_description_list =
+        [
+            'Mr. Demon struck with a rapid Feral Demon Slash!',
+            'Mr. Demon channeled demon energy through his body and fired a powerful Red Demon Blast at his target, exploding on impact!!! The battlefield has been destroyed leaving a crater in the centre!'
+        ]
+
+    2.times do |index|
+      assert_equal demon_attack_description_list[index], @demon.show_attack_description(index + 1)
+    end
+  end
+
   test 'that attack is accurate 88% to 90% of the time' do
     accurate_count = 0
     loop_length = 10000
