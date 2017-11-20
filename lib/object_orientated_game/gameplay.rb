@@ -70,6 +70,13 @@ class Gameplay
     "Your health: #{player_character.health_points} | #{enemy_character.name}'s health: #{enemy_character.health_points}"
   end
 
+  #todo test (stdout)
+  def show_round_number(round_number)
+    puts divider
+    puts ' ' * 16 + "Round #{round_number}"
+    puts divider
+  end
+
   def divider
     divider = '-' * 40
   end
