@@ -1,8 +1,8 @@
-require_relative '../object_orientated_game/characters/ninja'
-require_relative '../object_orientated_game/characters/samurai'
-require_relative '../object_orientated_game/characters/demon'
-require_relative '../../lib/object_orientated_game/modules/enemy_list'
-require_relative '../object_orientated_game/modules/player_character_list'
+require_relative 'characters/ninja'
+require_relative 'characters/samurai'
+require_relative 'characters/demon'
+require_relative 'modules/enemy_list'
+require_relative 'modules/player_character_list'
 
 class Gameplay
   include EnemyList
