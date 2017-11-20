@@ -58,6 +58,30 @@ class GameplayTest < Test::Unit::TestCase
     assert_equal expected_demon_intro_line, @demon.show_demon_intro_line
   end
 
+  test 'that show_health_statuses method works correctly.' do
+    assert_equal "Your health: 100 | Mr. Samurai's health: 200", @gameplay.show_health_statuses(@ninja, @samurai)
+    assert_equal "Your health: 200 | Mr. Demon's health: 300", @gameplay.show_health_statuses(@samurai, @demon)
+  end
+
+  test 'that show_characters_turn functions as expected' do
+    assert_equal '*' * 30 + "  #{@ninja.name}'s Move  " + '*' * 30, @gameplay.show_characters_turn(@ninja)
+    assert_equal '*' * 30 + "  #{@samurai.name}'s Move  " + '*' * 30, @gameplay.show_characters_turn(@samurai)
+    assert_equal '*' * 30 + "  #{@demon.name}'s Move  " + '*' * 30, @gameplay.show_characters_turn(@demon)
+  end
+
+  test 'that attack is accurate 88% to 90% of the time' do
+    accurate_count = 0
+    loop_length = 10000
+
+    loop_length.times{
+      if @gameplay.attack_accurate?
+        accurate_count += 1
+      end
+    }
+    assert_operator accurate_count, :>, loop_length * 0.88
+    assert_operator accurate_count, :<, loop_length * 0.9
+  end
+
   test 'that letters_only method only allows letters to be accepted' do
     input = 'hello'
     assert @gameplay.letters_only?(input)
@@ -71,7 +95,7 @@ class GameplayTest < Test::Unit::TestCase
     input = 'sentence with spaces'
     assert_equal false, @gameplay.letters_only?(input)
 
-    input = 'words, numbers123, &special characters'
+    input = '&specialCharacters%$@'
     assert_equal false, @gameplay.letters_only?(input)
   end
 end
