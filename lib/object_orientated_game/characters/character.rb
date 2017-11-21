@@ -44,8 +44,8 @@ class Character
 
   def character_trash_talk
     r = Random.new
-    intro_line_list = TrashTalk::Lines
-    intro_line_list[r.rand(intro_line_list.length)]
+    trash_talk_lines = TrashTalk::Lines
+    trash_talk_lines[r.rand(trash_talk_lines.length)]
   end
 
   #todo test (stdout)
